@@ -1,0 +1,207 @@
+/* Подключение шрифта */
+
+@font-face {
+  font-family: 'BebasNeueRegular';
+  src: url('../fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal; 
+}
+
+/* Основыне стили страници */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eaeaea;
+  padding: 10px;
+}
+
+.main {
+  max-width: 445px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;  
+  background: #f8f8f8;
+  box-shadow: 5px 9px 20px rgba(0, 0, 0, 0.15);
+  padding: 0 13px;  
+}
+
+/* Блок выбора лицензии (форма) */
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 7px 0 20px;
+}
+
+input[type="radio"] {
+  display: none;
+  
+}
+input[type="radio"] + label {
+  font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  padding-left: 41px;
+  margin-bottom: 30px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #737373;
+}
+
+input[type="radio"] + label:last-child {
+  margin-bottom: 20px;
+}
+
+input[type="radio"] + label::before {
+  content: "";
+  background: url(../img/radio-off.svg) no-repeat;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border-radius: 50%;  
+}
+
+input[type="radio"]:checked + label::before {
+  content: "";
+  background: url(../img/radio-on.svg) no-repeat;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;  
+  border-radius: 50%;
+}
+
+hr {
+color: #e6e6e6;
+}
+
+/* Блок выбора количества */
+
+.amount-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 10px;
+  border: 0;  
+}
+
+.amount-text {  
+  padding-right: 8px;
+  color: #000;
+  font-size: 11px; 
+  line-height: 13px;
+  letter-spacing: 0.3px;
+}
+
+.amount {
+  width: 45px;
+  padding: 5px 0 5px 0;
+  margin-right: 66px;
+  font-size: 10px;
+  line-height: 12px;  
+  background: url(../img/icon-down-dir.svg) no-repeat 32px 50%;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;
+   border: 1px solid #90b4e4;
+}
+
+.price {
+  margin-left: 135px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-transform: none;
+  color: #757575;
+}
+
+/* Блок итого и кнопка */
+
+.price-wrapper {
+  display: flex;  
+  justify-content: center;
+  margin-top: 22px;
+  margin-bottom: 6px;
+}
+
+.price-text {
+  font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: uppercase;
+  color: #797975;
+  margin-right: 5px;
+}
+
+.price-total {
+  position: relative;
+  font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 32px;  
+  color: #2c87a8;
+}
+
+.price-total span {
+  position: absolute;
+  font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #2c87a8;
+  font-weight: normal;
+  top: -4px;
+}
+
+.selected-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+
+.selected-text {
+  font-size: 16px;
+  line-height: 18px;  
+  color: #2c87a8;
+}
+
+.selected-name {
+  font-size: 14px;
+  line-height: 16px;
+  color: #2c87a8;
+  margin-left: 8px;
+}
+
+.btn {
+  margin: 0 auto;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #34a845;
+  border: none;
+  padding: 12px 48px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+
+
+  

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>License</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page">
+<main class="main">
+  <form class="form" action="https://echo.htmlacademy.ru/" method="GET">
+    <div class="form-wrapper"></div>
+    <input type="radio" id="#1" name="license" class="license" value="13" checked>
+    <label for="#1">license plan #1
+      <span class="price">$13 per license</span>
+    </label>
+    <br>
+    <input type="radio" id="#2" name="license" class="license" value="22">
+    <label for="#2">license plan #2
+      <span class="price">$22 per license</span>
+    </label>
+    <br>
+    <input type="radio" id="#3" name="license" class="license" value="34">
+    <label for="#3">license plan #3
+      <span class="price">$34 per license</span>
+    </label>
+    <br>
+    <hr>
+    <div class="amount-wrapper">
+      <p class="amount-text">Number of licenses:</p>
+      <label>
+        <select class="amount" name="amount-number">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10" selected>10</option>
+        </select>
+      </label>
+    </div>
+    <hr>
+  </form>
+  <div class="price-wrapper">
+    <p class="price-text">total:</p>
+    <div class="price-total" id="total">&#36;340
+      <span>us</span>
+    </div>
+  </div>
+  <button class="btn">Buy Now</button>
+  <div class="selected-wrapper">
+    <p class="selected-text">Selected plan:</p>
+    <div class="selected-name" id="plan">#1</div>
+  </div>
+
+</main>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  $(document).ready(function() {
+    //определяем объекты, с которыми будем работать
+    let valueBlock = $('#total');
+    let licensePlanTag = $('.license');
+    let lisenceCountTag = $('select');
+
+    //берем дефолтные значения
+    let licensePrice = licensePlanTag.val();
+    let licenseCount = lisenceCountTag.val();
+
+    //устанавливаем дефолтную сумму
+    let sum = licensePrice * licenseCount;
+    updateValue(valueBlock, sum);
+
+    licensePlanTag.on('change', function() {
+      //обновляем переменную
+      licensePrice = $(this).val();
+      //пересчитываем
+      sum = licensePrice * licenseCount;
+      //обновляем отображение
+      updateValue(valueBlock, sum);
+      //обновляем отображение плана
+      $('#plan').html(this.id);
+    });
+
+    lisenceCountTag.on('change', function() {
+      //обновляем переменную
+      licenseCount = $(this).val();
+      //пересчитываем
+      sum = licensePrice * licenseCount;
+      //обновляем отображение
+      updateValue(valueBlock, sum);
+    });
+
+    //функция расчета и вставки
+    function updateValue(node, value) {
+      node.html('$' + value + 'us');
+      $('div.price-total').each(function() {
+      $(this).html($(this).html().replace('us', '<span>us</span>'));    
+    });
+  }
+    $(".btn").click(function() {
+      $(".form").submit();
+    });
+  });
+
+</script>
+</body>
+</html>
